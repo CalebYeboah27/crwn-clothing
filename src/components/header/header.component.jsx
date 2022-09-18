@@ -3,13 +3,21 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { auth } from '../../firebase/firebase.utils'
+import CartIcon from '../cart-icon/cart-icon.component'
+import CartDropdown from '../cart-dropdown/cart-dropdown.component'
 
 import { ReactComponent as Logo } from '../../assets/crown.svg'
-
 import './header.style.scss'
 
 const Header = () => {
-  const currentUser = useSelector((state) => state.user.currentUser)
+  const {
+    user: { currentUser },
+    cart: {
+      cart: { hidden },
+    },
+  } = useSelector((state) => state)
+
+  // console.log(cart.cart.hidden)
 
   return (
     <div className="header">
@@ -29,6 +37,7 @@ const Header = () => {
             <div className="option" onClick={() => auth.signOut()}>
               SIGN OUT
             </div>
+            <CartIcon />
             {currentUser.photoURL && (
               <img
                 src={currentUser.photoURL}
@@ -43,6 +52,7 @@ const Header = () => {
           </Link>
         )}
       </div>
+      {hidden ? null : <CartDropdown />}
     </div>
   )
 }
