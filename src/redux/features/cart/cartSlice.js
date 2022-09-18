@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { addItemsToCart } from './cart.utils'
 
 const initialState = {
   cart: {
@@ -14,7 +15,7 @@ const cartSlice = createSlice({
     toggleCartHidden(state, action) {
       state.cart.hidden = !state.cart.hidden
     },
-    addToCart(state, action) {
+    addItem(state, action) {
       // it's okay to do this because immer makes it immmutable under the hood
       state.cart.cartItems.push(action.payload)
     },
@@ -27,5 +28,5 @@ const cartSlice = createSlice({
   },
 })
 
-export const { addToCart, removeFromCart, toggleCartHidden } = cartSlice.actions
+export const { addItem, removeFromCart, toggleCartHidden } = cartSlice.actions
 export default cartSlice.reducer

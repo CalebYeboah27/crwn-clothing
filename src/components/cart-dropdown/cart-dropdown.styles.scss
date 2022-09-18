@@ -9,13 +9,19 @@
   background-color: white;
   top: 90px;
   right: 40px;
-  z-index: 5;
+  z-index: 10;
 
   .cart-items {
     height: 240px;
     display: flex;
     flex-direction: column;
     overflow: scroll;
+  }
+
+  .cart-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 
   button {
