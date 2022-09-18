@@ -22,5 +22,16 @@
       padding: 10px 15px;
       cursor: pointer;
     }
+
+    .sign-out {
+      display: flex;
+      align-items: center;
+
+      .image {
+        height: 35px;
+        width: 35px;
+        border-radius: 50px;
+      }
+    }
   }
 }
