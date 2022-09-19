@@ -18,10 +18,9 @@
     overflow: scroll;
   }
 
-  .cart-item {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  .empty-message {
+    font-size: 18px;
+    margin: 50px auto;
   }
 
   button {
