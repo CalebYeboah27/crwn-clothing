@@ -26,10 +26,10 @@ const Header = () => {
       </Link>
       <div className="options">
         <Link to="/shop" className="option">
-          shop
+          SHOP
         </Link>
         <Link to="/contact" className="option">
-          contact
+          CONTACT
         </Link>
 
         {currentUser ? (

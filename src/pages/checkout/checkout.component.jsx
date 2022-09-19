@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import CheckoutItem from '../../components/checkout-item/checkout-item.component'
 
 import './checkout.styles.scss'
@@ -10,7 +10,7 @@ const CheckOutPage = () => {
     (acc, item) => acc + item.quantity * item.price,
     0
   )
-  console.log(cartTotal)
+
   return (
     <div className="checkout-page">
       <div className="checkout-header">
@@ -30,8 +30,9 @@ const CheckOutPage = () => {
           <span>Remove</span>
         </div>
       </div>
-
-      <CheckoutItem cartItems={cartItems} />
+      {cartItems.map((cartItem) => (
+        <CheckoutItem key={cartItem.id} item={cartItem} />
+      ))}
 
       <div className="total">
         <span>TOTAL: ${cartTotal}</span>
