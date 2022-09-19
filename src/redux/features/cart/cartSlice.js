@@ -17,7 +17,9 @@ const cartSlice = createSlice({
     },
     addItem(state, action) {
       // it's okay to do this because immer makes it immmutable under the hood
-      state.cart.cartItems.push(action.payload)
+      // state.cart.cartItems.push(action.payload)
+      const { cartItems } = state.cart
+      state.cart.cartItems = addItemsToCart(cartItems, action.payload)
     },
     removeFromCart(state, action) {
       state.cart.cartItems.splice(
